@@ -20,9 +20,7 @@ namespace OWINExample.Host.Modules {
   {
     public AccountModule()
     {
-      Get["/account/{category?}"] = _ => {
-        return !string.IsNullOrEmpty(_.category) ? View[string.Format(@"{0}/{1}",_.category, "Index")] : View["Index"];
-      };
+      Get["/account/{category?}"] = _ => !string.IsNullOrEmpty(_.category) ? View[string.Format(@"{0}/{1}",_.category, "Index")] : View["Index"];
     }
   }
 }
